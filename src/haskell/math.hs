@@ -11,11 +11,11 @@ factorial' n = n * factorial' (n - 1)
 addVectors :: (Num a) => (a, a) -> (a, a) -> (a, a)
 addVectors (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)
 
-sum :: (Num a) => [a] -> a
-sum []     = 0
-sum (x:xs) = x + sum xs
+sum' :: (Num a) => [a] -> a
+sum' []     = 0
+sum' (x:xs) = x + sum' xs
 
-max :: (Ord a) => a -> a -> a
-max a b
-    | a < b     = a
-    | otherwise = b
+maximum' :: (Ord a) => [a] -> a
+maximum' []  = error "maximum of empty list"
+maximum' [x] = x
+maximum' (x:xs) = max x (maximum' xs)
